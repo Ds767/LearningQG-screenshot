@@ -54,9 +54,10 @@ function DrawTX(){
 }
 
 function Download(){
-	var imageObj=new Image();
-	imageObj.setAttribute('crossOrigin', 'anonymous');
-	imageObj.src=SS.toDataURL("image/png");
-	window.open(SS.toDataURL("image/png"));
+	let aLink = document.createElement('a');
+	aLink.download = 'screenshot.png';
+	aLink.href = SS.toDataURL("image/png");
+	aLink.click();
+	//window.open(SS.toDataURL("image/png")); //不能用
 }
 
