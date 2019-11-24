@@ -2,9 +2,9 @@ var IS=document.getElementById("InputSize");
 var SS=document.getElementById("Screenshot");
 var ctx=SS.getContext("2d");
 var img=new Image();
-img.setAttribute('crossOrigin', 'anonymous');
+//img.setAttribute('crossOrigin', 'anonymous');
 var img2=new Image();
-img2.setAttribute('crossOrigin', 'anonymous');
+//img2.setAttribute('crossOrigin', 'anonymous');
 var imgw=101; //image width Lock
 var imgh=257; //image height 30'score
 var imgitv=141; //interval of image to image
