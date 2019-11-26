@@ -24,8 +24,10 @@ function Generate(){
 }
 
 function DrawBG(){
-	ctx.fillStyle="#fafafa";
+	ctx.fillStyle="#fbfbfb";
 	ctx.fillRect(0,160,SS.width,imgh/3*8);
+	ctx.fillStyle="#fbf2f1";
+	ctx.fillRect(SS.width-imgitv,160,imgitv,imgh/3*8);
 }
 
 function DrawPG(){ //存在两次提交不一样成绩的图片的情况！！！
@@ -37,7 +39,7 @@ function DrawPG(){ //存在两次提交不一样成绩的图片的情况！！�
 	var dat=today.getMonth()+1+'.'+today.getDate();
 	tdd=today.getFullYear()+"."+dat;
 	//Right 1
-	ctx.fillStyle="#ff0000";
+	ctx.fillStyle="#e32416";
 	ctx.font="40px SimHei";
 	img2.src="Res/qg2.png";
 	rm=Math.floor(Math.random()*20);
@@ -47,6 +49,7 @@ function DrawPG(){ //存在两次提交不一样成绩的图片的情况！！�
 	ctx.fillText("今日",ax-imgitv*1+12,225);
 	//Left 7
 	ctx.fillStyle="#cccccc";
+	ctx.strokeStyle="#f7f7f7";
 	ctx.font="35px SimHei";
 	img.src="Res/qg1.png";
 	for(var i=2;i<9;++i){
@@ -58,7 +61,10 @@ function DrawPG(){ //存在两次提交不一样成绩的图片的情况！！�
 		dat=(today.getDate()<10)?today.getMonth()+1+".0"+today.getDate():today.getMonth()+1+'.'+today.getDate();
 		ctx.fillText(dat,ax-imgitv*i+17,225);
 		
-		//!!灰线
+		ctx.beginPath();
+		ctx.moveTo(SS.width-imgitv*(i-1),160+imgh/3*8);
+		ctx.lineTo(SS.width-imgitv*(i-1),270);
+		ctx.stroke();
 	}
 	
 }
@@ -73,7 +79,7 @@ function DrawTX(){
 	ctx.font="40px SimHei";
 	ctx.fillText(tdd,865,980);
 	
-	ctx.fillStyle="#ff0000";
+	ctx.fillStyle="#e32416";
 	ctx.font="45px SimHei";
 	ctx.fillText("当日积分：",80,960);
 	ctx.font="80px SimHei";
