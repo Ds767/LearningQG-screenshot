@@ -9,7 +9,7 @@ var imgw=101; //image width Lock
 var imgh=257; //image height 30'score
 var imgitv=141; //interval of image to image
 var imgitv1=20; //interval of image inside
-var tds,tdd;
+var tds,tdd; //today score and today date
 
 function Generate(){
 	SS.width=document.getElementById("InputWidth").value;
@@ -85,7 +85,20 @@ function DrawTX(){
 	ctx.font="80px SimHei";
 	ctx.fillText(tds,300,960);
 	
+	ctx.fillStyle="#b7b7b7";
+	ctx.font="40px SimHei";
+	today=new Date();
+	var time=today.getHours()+":"+today.getMinutes();
+	for(var i=0;i<3;++i)
+	{
+		today.setMinutes(today.getMinutes()-Math.floor(Math.random()*50));
+		let hour=(today.getHours()<10)?"0"+today.getHours():today.getHours();
+		let min=(today.getMinutes()<10)?"0"+today.getMinutes():today.getMinutes();
+		time=hour+":"+min;
+		ctx.fillText(time,130,1100+i*100);
+	}
 	
+	//灰线 ctx.fillStyle="#f6f6f6";
 	
 }
 
