@@ -99,19 +99,30 @@ function DrawTX(){
 		time=hour+":"+min;
 		ctx.fillStyle="#b7b7b7";
 		ctx.font="40px SimHei";
-		ctx.fillText(time,125,1100+i*180);
+		ctx.fillText(time,125,1060+i*170);
+		
+		ctx.beginPath();
+		ctx.arc(90,1045+i*170,8,0,2*Math.PI);
+		ctx.strokeStyle="#f6f6f6";
+		ctx.stroke();
+		ctx.fillStyle="#f6f6f6";
+		ctx.fill();
+		
 		ctx.fillStyle="#000000";
 		ctx.font="45px SimHei";
-		let ls=Math.floor(Math.random()*1);
-		ctx.fillText(item[ls],125,1180+i*180);
+		let ls=Math.floor(Math.random()*2);
+		ctx.fillText(item[ls],125,1130+i*170);
 		ctx.fillStyle="#e32416";
-		ctx.fillText("+"+items[ls],960,1170+i*180);
+		ctx.fillText("+"+items[ls],960,1120+i*170);
 		ctx.font="30px SimHei";
-		ctx.fillText("分",1010,1170+i*180);
+		ctx.fillText("分",1010,1120+i*170);
 	}
 	
-	//灰线 ctx.fillStyle="#f6f6f6";
-	
+	ctx.beginPath();
+	ctx.moveTo(90,1045);
+	ctx.lineTo(90,1920);
+	ctx.strokeStyle="#f6f6f6";
+	ctx.stroke();
 }
 
 function Download(){
