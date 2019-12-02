@@ -10,6 +10,8 @@ var imgh=257; //image height 30'score
 var imgitv=141; //interval of image to image
 var imgitv1=20; //interval of image inside
 var tds,tdd; //today score and today date
+var item=["阅读文章","视听学习"];
+var items=[1,1];
 
 function Generate(){
 	SS.width=document.getElementById("InputWidth").value;
@@ -36,7 +38,7 @@ function DrawPG(){ //存在两次提交不一样成绩的图片的情况！！�
 	var ay=160+imgh/3*5; //30'score y axis
 	var rm=0; //random number
 	var today=new Date(); //initialize date
-	var dat=today.getMonth()+1+'.'+today.getDate();
+	var dat=(today.getDate()<10)?today.getMonth()+1+".0"+today.getDate():today.getMonth()+1+'.'+today.getDate();
 	tdd=today.getFullYear()+"."+dat;
 	//Right 1
 	ctx.fillStyle="#e32416";
@@ -89,13 +91,23 @@ function DrawTX(){
 	ctx.font="40px SimHei";
 	today=new Date();
 	var time=today.getHours()+":"+today.getMinutes();
-	for(var i=0;i<3;++i)
+	for(var i=0;i<6;++i)
 	{
 		today.setMinutes(today.getMinutes()-Math.floor(Math.random()*50));
 		let hour=(today.getHours()<10)?"0"+today.getHours():today.getHours();
 		let min=(today.getMinutes()<10)?"0"+today.getMinutes():today.getMinutes();
 		time=hour+":"+min;
-		ctx.fillText(time,130,1100+i*100);
+		ctx.fillStyle="#b7b7b7";
+		ctx.font="40px SimHei";
+		ctx.fillText(time,125,1100+i*180);
+		ctx.fillStyle="#000000";
+		ctx.font="45px SimHei";
+		let ls=Math.floor(Math.random()*1);
+		ctx.fillText(item[ls],125,1180+i*180);
+		ctx.fillStyle="#e32416";
+		ctx.fillText("+"+items[ls],960,1170+i*180);
+		ctx.font="30px SimHei";
+		ctx.fillText("分",1010,1170+i*180);
 	}
 	
 	//灰线 ctx.fillStyle="#f6f6f6";
