@@ -21,8 +21,6 @@ function Generate(){
 	DrawBG(); //draw background
 	DrawPG(); //draw progress bar and score text and data
 	DrawTX(); //draw text of score detail.time,score,item,time
-	//Draw2();
-	
 }
 
 function DrawBG(){
